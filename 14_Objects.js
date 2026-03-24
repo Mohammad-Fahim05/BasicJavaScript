@@ -63,7 +63,9 @@ const wrongMerge = { obj1, obj2 };
 
 //* Merge properly
 const obj3 = Object.assign({}, obj1, obj2);
-
+// Explanation:
+// {} → target
+// obj1, obj2 → sources
 
 
 //! ===== SPREAD OPERATOR (BEST 🔥) =====
