@@ -1,6 +1,4 @@
-// JavaScript Execution Context + Call Stack (Complete Notes)
-
-// (Based on your transcript + simplified + extra clarity)
+// JavaScript Execution Context + Call Stack
 
 // 🔷 1. What is Execution Context?
 
