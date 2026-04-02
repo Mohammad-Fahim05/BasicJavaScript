@@ -1,0 +1,297 @@
+//! ===== DOM (DOCUMENT OBJECT MODEL) =====
+
+
+//! ===== BIG IDEA =====
+
+//* JS basics completed ✅
+//* Next step → DOM + Events + Projects
+
+
+
+/* ===================================================== */
+
+
+//! ===== WHY DOM IS NEEDED =====
+
+//* Without DOM → cannot build real projects
+
+//* DOM helps to:
+//* → change UI
+//* → update content
+//* → interact with user
+
+
+
+/* ===================================================== */
+
+
+//! ===== WHAT IS DOM =====
+
+//* DOM = Document Object Model
+
+//* Meaning:
+//* Browser converts HTML into object tree
+
+
+
+/* ===================================================== */
+
+
+//! ===== BASIC HTML STRUCTURE =====
+
+// <html>
+//   <head>
+//     <title>DOM Learning</title>
+//   </head>
+//   <body>
+//     <div class="bg-black">
+//       <h1 class="heading">DOM Learning</h1>
+//       <p>Some text</p>
+//     </div>
+//   </body>
+// </html>
+
+
+
+/* ===================================================== */
+
+
+//! ===== HOW BROWSER SEES IT =====
+
+//* Tree structure:
+
+// window
+//  └── document
+//       └── html
+//            ├── head ── meta → attribute
+//            │     └── title → text node
+//            └── body
+//                  └── div
+//                       ├── h1 → text                   
+//                       └── p → text
+
+
+
+/* ===================================================== */
+
+
+//! ===== EVERYTHING IS OBJECT =====
+
+//* head → object
+//* body → object
+//* div → object
+
+//* Entire page = object structure
+
+
+
+/* ===================================================== */
+
+
+//! ===== WINDOW vs DOCUMENT =====
+
+//* window → top-level object (browser)
+
+//* document → represents web page
+
+//* Shortcut:
+window.document === document
+
+
+
+/* ===================================================== */
+
+
+//! ===== DOM TREE FLOW =====
+
+//* window
+//* → document
+//* → html
+//* → head + body
+//* → elements
+
+
+
+/* ===================================================== */
+
+
+//! ===== NODE TYPES =====
+
+//* Element node → <div>
+//* Text node → "Hello"
+//* Attribute node → class, id
+
+
+
+/* ===================================================== */
+
+
+//! ===== PARENT / CHILD / SIBLING =====
+
+// <div>
+//   <h1>Hello</h1>
+//   <p>Text</p>
+// </div>
+
+//* div → parent
+//* h1, p → children
+//* h1 & p → siblings
+
+
+
+/* ===================================================== */
+
+
+//! ===== WHY TREE IS IMPORTANT =====
+
+//* Helps to:
+//* → access elements
+//* → modify
+//* → delete
+//* → create new
+
+
+
+/* ===================================================== */
+
+
+//! ===== ACCESS DOM =====
+
+console.log(document);
+
+
+//? Shows full DOM
+
+
+
+/* ===================================================== */
+
+
+//! ===== GET DATA =====
+
+//* Example:
+document.links;
+
+
+//? Returns HTMLCollection (not array)
+
+
+
+/* ===================================================== */
+
+
+//! ===== HTMLCollection vs ARRAY =====
+
+//* HTMLCollection:
+//* → looks like array
+//* → NOT real array ❌
+
+//* So:
+//* → no map/filter
+
+
+
+/* ===================================================== */
+
+
+//! ===== SELECT ELEMENTS =====
+
+//* By ID
+document.getElementById("firstHeading");
+
+
+//* By CSS (powerful)
+document.querySelector(".heading");
+
+
+
+/* ===================================================== */
+
+
+//! ===== CHANGE CONTENT =====
+
+element.innerHTML = "<h1>Chai aur Code</h1>";
+
+
+//? Replaces content
+
+
+
+/* ===================================================== */
+
+
+//! ===== WHAT YOU CAN DO =====
+
+//* change values
+//* add elements
+//* remove elements
+//* filter data
+//* calculate values
+
+
+
+/* ===================================================== */
+
+
+//! ===== REAL-WORLD LOGIC =====
+
+//* Get price from page
+//* Calculate total
+//* Show result
+
+
+
+/* ===================================================== */
+
+
+//! ===== TRAVERSING DOM =====
+
+//* Move in tree
+
+element.parentNode;
+element.children;
+
+
+
+/* ===================================================== */
+
+
+//! ===== EVENTS (NEXT TOPIC) =====
+
+//* User action → code runs
+
+button.addEventListener("click", () => {
+  console.log("Clicked");
+});
+
+
+
+/* ===================================================== */
+
+
+//! ===== FINAL UNDERSTANDING =====
+
+//* Learn basics ✅
+//* DOM understanding ✅
+//* Events (next) 🔜
+//* Build projects 🚀
+
+
+
+/* ===================================================== */
+
+
+//! ===== ONE-LINE SUMMARY 🎯 =====
+
+//* "DOM = structure of web page JS can control"
+
+
+
+/* ===================================================== */
+
+
+//! ===== MEMORY TRICK 🧠 =====
+
+//* HTML → skeleton
+//* DOM → tree
+//* JS → controller

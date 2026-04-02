@@ -1,0 +1,445 @@
+//! =====================================================
+//! ===== DOM COMPLETE NOTES (TRANSCRIPT LEVEL) =====
+//! =====================================================
+
+
+//! ===== 1. STARTING POINT =====
+
+//* You already learned:
+//* → loops
+//* → filter, map, reduce
+
+//* Now:
+//* → No need to think about them again
+
+//* Next step:
+//* → DOM (real-world JavaScript)
+
+
+//? Important shift:
+//* Before → console (black screen)
+//* Now → real webpage control
+
+
+
+/* ===================================================== */
+//! ===== 2. WHY DOM =====
+
+//* Without DOM → no real project
+
+//* DOM allows:
+//* → change UI
+//* → update content
+//* → interact with user
+
+//* Example thinking:
+//* Take price → calculate → show result
+
+
+
+/* ===================================================== */
+//! ===== 3. WHAT IS DOM =====
+
+//* DOM = Document Object Model
+
+//* Meaning:
+//* Browser converts HTML → tree structure
+
+
+//! ===== TREE =====
+
+// window
+//  └── document
+//       └── html
+//            ├── head
+//            └── body
+
+
+//! ===== KEY IDEA =====
+
+//* Everything is OBJECT
+
+
+
+/* ===================================================== */
+//! ===== 4. BASIC HTML =====
+
+// <div class="bg-black">
+//   <h1 id="title" class="heading">
+//      DOM Learning <span style="display:none">test</span>
+//   </h1>
+//   <p>Some text</p>
+// </div>
+
+
+
+/* ===================================================== */
+//! ===== 5. SELECTING ELEMENT =====
+
+//* getElementById
+
+const title = document.getElementById("title");
+
+
+//? Output:
+// <h1 id="title" class="heading">DOM Learning <span>test</span></h1>
+
+
+//? Important warning:
+//* getElementById → case sensitive
+//* G, E, I must be capital
+
+
+
+/* ===================================================== */
+//! ===== 6. WHAT YOU GET =====
+
+//* You get FULL OBJECT
+
+title.id;
+//? "title"
+
+title.className;
+//? "heading"
+
+
+//? Meaning:
+//* You can read + modify everything
+
+
+
+/* ===================================================== */
+//! ===== 7. ATTRIBUTES (VERY IMPORTANT) =====
+
+//* Get
+title.getAttribute("class");
+//? "heading"
+
+
+//* Set (⚠️ replaces old value)
+title.setAttribute("class", "test");
+
+
+//? Output:
+// class = "test" (old removed ❌)
+
+
+//* Correct way
+title.setAttribute("class", "heading test");
+
+
+//? Output:
+// class = "heading test"
+
+
+
+/* ===================================================== */
+//! ===== 8. STYLING =====
+
+//* Change CSS using JS
+
+title.style.backgroundColor = "green";
+title.style.padding = "15px";
+title.style.borderRadius = "10px";
+
+
+//? Output:
+// Visual change on page
+
+
+//? Rule:
+//* CSS → camelCase
+
+
+
+/* ===================================================== */
+//! ===== 9. CONTENT METHODS (VERY IMPORTANT) =====
+
+
+//* textContent
+title.textContent;
+
+
+//? Output:
+// "DOM Learning test"
+
+
+//? Includes:
+//* hidden text
+//* span text
+
+
+
+//* innerText
+title.innerText;
+
+
+//? Output:
+// "DOM Learning"
+
+
+//? Only visible text
+
+
+
+//* innerHTML
+title.innerHTML;
+
+
+//? Output:
+// "DOM Learning <span style='display:none'>test</span>"
+
+
+//? Includes HTML
+
+
+
+//! ===== DIFFERENCE =====
+
+//* textContent → ALL text
+//* innerText → visible only
+//* innerHTML → HTML + text
+
+
+
+/* ===================================================== */
+//! ===== 10. querySelector (MOST IMPORTANT) =====
+
+//* Select FIRST element
+
+document.querySelector("h1");
+//? first h1
+
+document.querySelector("#title");
+//? title element
+
+document.querySelector(".heading");
+//? first class match
+
+
+//? Works like CSS selector
+
+
+
+/* ===================================================== */
+//! ===== 11. querySelectorAll =====
+
+const list = document.querySelectorAll("li");
+
+
+//? Output:
+// NodeList(3) [li, li, li]                       
+
+ 
+
+//! ===== NODELIST =====
+
+//* Looks like array
+//* NOT real array
+//* Supports forEach
+
+
+
+/* ===================================================== */
+//! ===== 12. IMPORTANT PROBLEM =====
+
+// list.style.color = "green"; ❌
+
+
+//? Reason:
+//* Multiple elements
+
+
+//* Correct
+list[0].style.color = "green";
+
+
+
+/* ===================================================== */
+//! ===== 13. LOOP NODELIST =====
+
+list.forEach((item) => {
+  console.log(item.innerText);
+});
+
+
+//? Output:
+// 1
+// 2
+// 3
+
+
+
+/* ===================================================== */
+//! ===== 14. HTMLCollection =====
+
+const collection = document.getElementsByClassName("heading");
+
+
+//? Output:
+// HTMLCollection(1)
+
+
+//! ===== PROBLEM =====
+
+// collection.forEach(...) ❌
+
+
+//! ===== SOLUTION =====
+
+const arr = Array.from(collection);
+
+arr.forEach((item) => {
+  console.log(item.innerText);
+});
+
+
+//? Output:
+// DOM Learning
+
+
+
+/* ===================================================== */
+//! ===== 15. querySelector vs querySelectorAll =====
+
+//* querySelector → one
+//* querySelectorAll → many
+
+
+
+/* ===================================================== */
+//! ===== 16. REAL EXAMPLE (IMPORTANT) =====
+
+// <ul>
+//   <li>1</li>
+//   <li>2</li>
+//   <li>3</li>
+// </ul>
+
+const ul = document.querySelector("ul");
+
+const first = ul.querySelector("li");
+
+
+//* Change style
+first.style.backgroundColor = "green";
+
+
+//? Output:
+// first item becomes green
+
+
+//* Change content
+first.innerText = "5";
+
+
+//? Output:
+// <li>5</li>
+
+
+
+/* ===================================================== */
+//! ===== 17. ADVANCED SELECTOR =====
+
+document.querySelector('input[type="password"]');
+
+
+//? Output:
+// password input
+
+
+
+/* ===================================================== */
+//! ===== 18. DOM TRAVERSING =====
+
+//* Move in tree
+
+first.parentNode;
+//? <ul>
+
+ul.children;
+//? HTMLCollection(3)
+
+
+
+/* ===================================================== */
+//! ===== 19. IMPORTANT CONCEPT =====
+
+//* HTMLCollection ≠ NodeList
+
+//* NodeList → forEach works
+//* HTMLCollection → convert first
+
+
+
+/* ===================================================== */
+//! ===== 20. REAL POWER =====
+
+//* select elements
+//* change style
+//* change content
+//* loop elements
+//* update UI
+
+
+
+/* ===================================================== */
+//! ===== 21. REAL PROJECT THINKING =====
+
+//* Get data → process → display
+
+//* Example:
+//* cart total → calculate → show result
+
+
+
+/* ===================================================== */
+//! ===== 22. FINAL MASTER SUMMARY =====
+
+//* DOM → page structure
+//* select → get element
+//* style → design change
+//* content → change text
+//* NodeList → loop directly
+//* HTMLCollection → convert
+
+
+
+/* ===================================================== */
+//! ===== 23. MOST IMPORTANT LINE 🎯 =====
+
+//* "DOM lets JavaScript control and modify the web page"
+
+
+
+/* ===================================================== */
+//! ===== MEMORY TRICK 🧠 =====
+
+//* HTML → skeleton
+//* DOM → tree
+//* JS → controller
+
+
+
+
+
+
+
+
+<!-- 
+document.querySelectorAll("h2")
+NodeList(15) [h2.vector-pinnable-header-label, h2#History, h2#Trademark, h2#Website_client-side_usage, h2#Other_usage, h2#Execution, h2#Features, h2#Syntax, h2#Security, h2#Development_tools, h2#Related_technologies, h2#Notes, h2#References, h2#Further_reading, h2#External_links]
+const myh2 = document.querySelectorAll(".mw-heading2 h2")
+undefined
+myh2[0].innerText
+'History'
+myh2[0].innerText
+'History'
+myh2.forEach((item) => item.style.color = "red")
+undefined
+myh2.forEach(function(h){
+    h.style.color = "green";
+    h.style.backgroundColor = "black";
+    h.style.padding = "10px"
+})
+undefined -->
