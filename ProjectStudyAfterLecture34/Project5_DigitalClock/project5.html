@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Center container */
+.center {
+  text-align: center;
+}
+
+/* Card style */
+#banner {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Clock box */
+#Clock {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 15px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  /* Shadow */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+  /* Glow effect */
+  text-shadow: 0 0 10px rgba(255,255,255,0.8),
+               0 0 20px rgba(255,255,255,0.6);
+}
+
+/* Hover effect (optional) */
+#Clock:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+</style>
+</head>
+<body>
+    <div class = "center">
+    <div id = "banner"><span>Your Local Time</span></div>
+    <div id ="Clock" ></div>
+    </div>
+    <script src = "project5.js"></script>
+</body>
+</html>
